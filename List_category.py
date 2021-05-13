@@ -1,5 +1,7 @@
 # Đưa từng dòng thành dạng danh sách các category
+# Thực hiện đếm các category
 import re
+from typing import Counter
 
 link = "category_Test_04.txt"
 
@@ -19,3 +21,5 @@ for i in list:
    data.extend(i.split(', '))
 
 print(len(data))
+
+print(Counter(data))
