@@ -1,4 +1,4 @@
-# The input code is the category and prints the number of occurrences
+# The input code is the category and prints the number of occurrence
 
 import re
 
