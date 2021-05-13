@@ -1,7 +1,11 @@
 import re
 
 # # # Chạy code của từng VERSION mới ra kết quả nha
-#  # VERSION_01
+# # # Version trước là đầu vào của version sau nên phải thực hiện chạy các version theo thứ tự
+
+#  # VERSION_01 : 
+#  #  #  input: input.txt
+#  #  #  output: category_Test_01.txt
 
 # link = "input.txt"
 # count = 0
@@ -14,7 +18,11 @@ import re
 #         if (RE_02 != []):
 #             f.write(str(RE_02) + "\n")
 
+
+
 # # VERSION_02
+#  #  #  input: category_Test_01.txt
+#  #  #  output: category_Test_02.txt
 
 # link = "category_Test_01.txt"
 # count = 0
@@ -26,7 +34,11 @@ import re
 #         if (RE_02 != []):
 #             f.write (str(RE_02) + "\n")
 
+
+
 # # VERSION_03
+#  #  #  input: category_Test_02.txt
+#  #  #  output: category_Test_03.txt
 
 # link = "category_Test_02.txt"
 # count = 0
@@ -37,7 +49,11 @@ import re
 #         RE_01 = re.findall(r":\s[^\"]*", line)
 #         f.write (str(RE_01) + "\n")
 
+
+
 # VERSION_04
+#  #  #  input: category_Test_03.txt
+#  #  #  output: category_Test_04.txt
 
 link = "category_Test_03.txt"
 count = 0
