@@ -11,17 +11,23 @@ list3 = []
 link = "number_of_category.txt"
 count = 0
 
+f = open ("category_in_line.txt", "w", encoding="utf8")
 for line in open(link, "r", encoding='utf8'):
        list.extend(line.split(", "))
-
+       f.write(str(list) + "\n")
 for i in list:
-    Re = re.findall(r'\"(.*)\"',i)
-    Re2 = re.findall(r'\: (.*)',i)
+    # Re = re.findall(r'\"\'[^\']*\'\"',i)
+    Re = re.findall(r'\"(.*)\"', i)
+    Re2 = re.findall(r'(0|[1-9][0-9]*)[^(\s)]*$',i)
+
     list2.extend(Re)
     list3.extend(Re2)
 
 list3 = list3[::-1]
 list2 = list2[::-1]
+
+print(len(list2))
+print(len(list3))
 
 print("- Enter any category: ", end='')
 check = input()
