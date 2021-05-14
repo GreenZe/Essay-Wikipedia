@@ -1,28 +1,37 @@
+import collections
 import re
-from typing import Counter
 
-link = "category_round_04.txt" # dữ liệu cuối cùng từ file category_filter.py
+def data_analysis_input(link):
+    count = 0
+    data = []
 
-count = 0
-list = []
+    for line in open(link, "r", encoding='utf8'):
+        if count < 0: break
+        else:
+            RE = re.findall(r"\'[^\']*\'",line)
+            data.extend(RE)
+            count += 1
 
-# tạo một file ghi lại số lượng category
-f = open ("number_of_category.txt", "w", encoding="utf8")
-
-for line in open(link, "r", encoding='utf8'):
-    if count < 0: break
-    else:
-        RE = re.findall(r"\[\"(.*)\"]",line)
-        list.extend(RE)
-        count += 1
+    return data
 
 
-data = []
+# # ghi kết quả đếm được vào file number_of_category.txt
+def num_of_category(data,text):
 
-for i in list:
-   data.extend(i.split(', '))
+    # mở một file ghi lại số lần xuất hiện của từng category
+    f = open ("number_of_category.txt", "w", encoding="utf8")
 
-print(len(data))
+    c = collections.Counter(data) #đếm category bằng Counter()
 
-# ghi kết quả đếm được vào file number_of_category.txt
-f.write (str(Counter(data)) + "\n")
+    f.write(str(c))#ghi dữ liệu
+
+    print("- The number of that category is: ", c[text])
+
+
+if __name__ == "__main__":
+    link = "category_round_04.txt" # dữ liệu cuối cùng từ file category_filter.py
+    data = data_analysis_input(link)
+    print("- Enter any category: ", end='')
+    num_of_category(data,text = input())
+    
+    
