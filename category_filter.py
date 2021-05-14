@@ -8,7 +8,7 @@ import re
 """
 #  # ROUND 1
 
-# link = "D:\\Tieu Luan\\Rinsha\\content.txt"
+# link = "content.txt"
 # count = 0
 # f = open("category_round_01.txt", "w", encoding="utf8")
 # for line in open(link, "r", encoding='utf8'):
