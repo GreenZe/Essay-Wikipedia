@@ -9,10 +9,9 @@ def data_analysis_input(link):
     for line in open(link, "r", encoding='utf8'):
         if count < 0: break
         else:
-            RE = re.findall(r"\'[^\']*\'",line)
+            RE = re.findall(r"\\'[^\']*\\'|\".*\\'[A-Za-z]+.*[\']?.*\"|\'[^\'\\]+\"[^\'\\]+\'|\'[^\"\'\\]+\'",line)
             data.extend(RE)
             count += 1
-
     return data
 
 
@@ -38,8 +37,9 @@ def category_statistic(c,k):
 
 if __name__ == "__main__":
 
-    link = "category_round_04.txt" # dữ liệu cuối cùng từ file category_filter.py
+    link = "category.txt" # dữ liệu cuối cùng từ file category_filter.py
     data = data_analysis_input(link)
+    
     c = num_of_category(data)
 
     #input:category
@@ -51,9 +51,13 @@ if __name__ == "__main__":
 
     print("- Enter a any number: ", end='')
     k =input()
-    print("-> The number of categories greater than %2d is: "%(k) + category_statistic(c,int(k)),"\n")
+    print("-> The number of categories greater than k times is: ", category_statistic(c,int(k)),"\n")
 
     #Các category có ít nhất k lần xuất hiện là:
-    print("Các category có ít nhất k lần xuất hiện là: ",category)
+    # print("Các category có ít nhất k lần xuất hiện là: ", category)
+    fo = open ("num_of_category_greater_.txt", "w", encoding="utf8")
+    for i in category:
+        fo.write(str(i) + "\n")
 
     
+ 
