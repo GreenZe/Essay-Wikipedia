@@ -1,19 +1,7 @@
 import collections
-import re
+from category_filter import data_category
+
 category = []
-
-def data_analysis_input(link):
-    count = 0
-    data = []
-
-    for line in open(link, "r", encoding='utf8'):
-        if count < 0: break
-        else:
-            RE = re.findall(r"\\'[^\']*\\'|\".*\\'[A-Za-z]+.*[\']?.*\"|\'[^\'\\]+\"[^\'\\]+\'|\'[^\"\'\\]+\'",line)
-            data.extend(RE)
-            count += 1
-    return data
-
 
 # # ghi kết quả đếm được vào file number_of_category.txt
 def num_of_category(data):
@@ -38,9 +26,10 @@ def category_statistic(c,k):
 if __name__ == "__main__":
 
     link = "category.txt" # dữ liệu cuối cùng từ file category_filter.py
-    data = data_analysis_input(link)
+    # data = data_analysis_input(link)
     
-    c = num_of_category(data)
+    c = num_of_category(data_category)
+
 
     #input:category
     #output:Số lần xuất hiện của category đó
@@ -52,6 +41,7 @@ if __name__ == "__main__":
     print("- Enter a any number: ", end='')
     k =input()
     print("-> The number of categories greater than k times is: ", category_statistic(c,int(k)),"\n")
+
 
     #Các category có ít nhất k lần xuất hiện là:
     # print("Các category có ít nhất k lần xuất hiện là: ", category)
