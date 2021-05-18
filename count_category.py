@@ -15,6 +15,8 @@ def num_of_category(data):
 
     return c
 
+# Thống kê các category
+# Số lượng category xuất hiện ít nhất k lần.
 def category_statistic(c,k):
     count = 0
     for i in c.items():#Lấy từng category và số lần xuất hiện của nó
@@ -23,12 +25,14 @@ def category_statistic(c,k):
             category.append(i[0]) # i[0] là category
     return count
 
+
 if __name__ == "__main__":
 
     link = "category.txt" # dữ liệu cuối cùng từ file category_filter.py
     # data = data_analysis_input(link)
     
-    c = num_of_category(data_category)
+
+    c = num_of_category(data_category) # data_category[] được import từ category_filter
 
 
     #input:category
@@ -38,13 +42,13 @@ if __name__ == "__main__":
     print("- The number of that category is: ", c[text],"\n")
 
 
+
     print("- Enter a any number: ", end='')
-    k =input()
-    print("-> The number of categories greater than k times is: ", category_statistic(c,int(k)),"\n")
+    k =int(input())
+    print("-> The number of categories greater than k times is: ", category_statistic(c,k),"\n")
 
 
-    #Các category có ít nhất k lần xuất hiện là:
-    # print("Các category có ít nhất k lần xuất hiện là: ", category)
+    #Các category có ít nhất k lần xuất hiện được ghi vào num_of_greater_.txt
     fo = open ("num_of_category_greater_.txt", "w", encoding="utf8")
     for i in category:
         fo.write(str(i) + "\n")
